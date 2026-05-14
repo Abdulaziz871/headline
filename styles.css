@@ -1,0 +1,920 @@
+:root {
+  --bg: #050505;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-strong: rgba(255, 255, 255, 0.08);
+  --text: #f4f7fb;
+  --muted: rgba(244, 247, 251, 0.72);
+  --line: rgba(168, 203, 242, 0.18);
+  --accent: #a8cbf2;
+  --accent-strong: #d8ecff;
+  --vision: #ff8c73;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+:root {
+  --bg: #050505;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-strong: rgba(255, 255, 255, 0.08);
+  --text: #f4f7fb;
+  --muted: rgba(244, 247, 251, 0.72);
+  --line: rgba(168, 203, 242, 0.18);
+  --accent: #a8cbf2;
+  --accent-strong: #d8ecff;
+  --vision: #ff8c73;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+@font-face {
+  font-family: "TheYearOfHandicrafts";
+  src: url("./TheYearOfHandicrafts.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./PPNeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "ss01" 1, "ss02" 1, "ss03" 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(168, 203, 242, 0.14), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+body,
+p,
+a,
+button,
+input,
+textarea,
+select,
+li,
+span,
+strong {
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+  font-feature-settings: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-kerning: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 120px, 120px 100%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 88%);
+  opacity: 0.35;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem clamp(1rem, 3vw, 2.5rem);
+  backdrop-filter: blur(18px);
+  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.55));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-mark {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(168, 203, 242, 0.18), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(168, 203, 242, 0.4);
+  color: var(--accent-strong);
+  font-weight: 900;
+  box-shadow: 0 0 0 8px rgba(168, 203, 242, 0.06);
+  overflow: hidden;
+}
+
+.brand-mark img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+  font-size: 1.3rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+}
+
+.nav a {
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.section {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+}
+
+.section + .section {
+  margin-top: 0;
+}
+
+.hero {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(55px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.hero-glow--one {
+  top: 10%;
+  inset-inline-start: 8%;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(168, 203, 242, 0.15);
+}
+
+.hero-glow--two {
+  bottom: 8%;
+  inset-inline-end: 10%;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(255, 140, 115, 0.08);
+}
+
+.hero-copy,
+.hero-emblem,
+.section-heading,
+.about-stats,
+.about-copy,
+.service-card,
+.marquee,
+.footer-copy,
+.footer-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.88rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.section-heading h2,
+.footer-copy h2 {
+  margin: 0;
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 {
+  max-width: 9ch;
+  font-size: clamp(4rem, 9vw, 7.5rem);
+}
+
+.hero h1 .accent-word {
+  color: var(--vision);
+}
+
+.hero-subtitle {
+  margin: 1.25rem 0 0;
+  max-width: 32rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.button {
+  min-width: 11rem;
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  text-align: center;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--accent), #eaf5ff);
+  color: #050505;
+  box-shadow: 0 16px 40px rgba(168, 203, 242, 0.2);
+}
+
+.button--ghost {
+  border-color: rgba(168, 203, 242, 0.34);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.meta-card,
+.stat-card,
+.service-card,
+.footer-item {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+}
+
+.meta-card {
+  padding: 1rem 1.1rem;
+  border-radius: 1.35rem;
+}
+
+.meta-card span,
+.stat-number {
+  display: block;
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: var(--accent-strong);
+}
+
+.meta-card p,
+.stat-card p,
+.about-copy p,
+.service-card p,
+.footer-item span {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+}
+
+p {
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+}
+
+.hero-emblem {
+  display: grid;
+  place-items: center;
+  min-height: 34rem;
+  position: relative;
+}
+
+.emblem-ring {
+  display: none;
+}
+
+.emblem-core {
+  position: relative;
+  width: min(24rem, 65vw);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+  font-size: clamp(4rem, 10vw, 6rem);
+  font-weight: 900;
+  color: var(--accent-strong);
+  background: linear-gradient(145deg, rgba(168, 203, 242, 0.14), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(168, 203, 242, 0.35);
+  box-shadow: 0 0 0 18px rgba(168, 203, 242, 0.04), var(--shadow);
+  animation: fadePulse 1.8s ease-out both, breathe 6s ease-in-out 1.8s infinite;
+  overflow: hidden;
+}
+
+.emblem-core img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+  animation: logoFade 1.8s ease-out both;
+}
+
+.emblem-caption {
+  position: absolute;
+  inset-block-end: 0.8rem;
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+  color: var(--vision);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.section-heading {
+  display: grid;
+  gap: clamp(1.5rem, 2.2vw, 2rem);
+  margin-bottom: 2.5rem;
+}
+
+.heading-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(168, 203, 242, 0.24);
+  padding-bottom: 0.85rem;
+}
+
+.heading-wrapper .eyebrow {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.heading-subtitle {
+  margin: 0;
+  color: var(--vision);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.section-heading h2,
+.footer-copy h2 {
+  max-width: 100%;
+  font-size: clamp(2.6rem, 5.3vw, 4.5rem);
+  margin-top: 0.35rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.2rem;
+}
+
+.about-stats {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-choice {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.about-choice:hover,
+.about-choice:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(168, 203, 242, 0.45);
+  background: linear-gradient(180deg, rgba(168, 203, 242, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.about-choice.is-active {
+  border-color: rgba(168, 203, 242, 0.55);
+  background: linear-gradient(180deg, rgba(168, 203, 242, 0.16), rgba(255, 255, 255, 0.04));
+}
+
+.about-choice-title {
+  display: block;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  color: var(--accent-strong);
+  font-weight: 900;
+}
+
+.stat-card {
+  padding: 1.4rem;
+  border-radius: 1.6rem;
+}
+
+.stat-card--accent {
+  border-color: rgba(168, 203, 242, 0.4);
+  background: linear-gradient(180deg, rgba(168, 203, 242, 0.12), rgba(255, 255, 255, 0.03));
+}
+
+.about-copy {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  padding: clamp(1.4rem, 2vw, 2rem);
+  border-radius: 1.8rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-copy p {
+  font-size: 1.03rem;
+}
+
+.about-detail-title {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.about-detail-title .accent-word {
+  color: var(--vision);
+}
+
+.about-detail-text {
+  margin: 0;
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.service-card {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1.6rem;
+  padding: 1.5rem;
+  min-height: 15rem;
+  overflow: hidden;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -4rem -4rem auto;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 203, 242, 0.18), transparent 65%);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(168, 203, 242, 0.55);
+  background: linear-gradient(180deg, rgba(168, 203, 242, 0.09), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.service-icon {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: rgba(168, 203, 242, 0.1);
+  color: var(--accent-strong);
+  border: 1px solid rgba(168, 203, 242, 0.28);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.service-icon i {
+  display: block;
+  line-height: 1;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: "TheYearOfHandicrafts", "PP Neue Montreal", sans-serif;
+}
+
+.services .service-card:nth-child(4),
+.services .service-card:nth-child(5) {
+  grid-column: span 6;
+}
+
+.marquee {
+  overflow: hidden;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scrollMarquee 24s linear infinite;
+}
+
+.marquee-track span {
+  flex: 0 0 auto;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(244, 247, 251, 0.82);
+  filter: grayscale(1);
+  transition: filter 220ms ease, color 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.marquee-track:hover span {
+  filter: grayscale(0);
+}
+
+.marquee-track span:hover {
+  color: #fff;
+  border-color: rgba(168, 203, 242, 0.45);
+  background: rgba(168, 203, 242, 0.12);
+}
+
+.contact-zone {
+  padding-bottom: clamp(2.4rem, 4vw, 3.5rem);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+}
+
+.contact-form-card,
+.contact-aside,
+.contact-card {
+   border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+  border-radius: 1.6rem;
+}
+
+.contact-form-card {
+  padding: clamp(1.1rem, 2.2vw, 1.6rem);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-field label {
+  font-size: 0.95rem;
+  color: var(--accent-strong);
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.9rem;
+  color: var(--text);
+  padding: 0.75rem 0.9rem;
+  font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif;
+  font-size: 1rem;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: none;
+  border-color: rgba(168, 203, 242, 0.55);
+  box-shadow: 0 0 0 3px rgba(168, 203, 242, 0.16);
+}
+
+.contact-form-card .button {
+  margin-top: 0.35rem;
+  min-width: 0;
+  width: fit-content;
+}
+
+.contact-aside {
+  padding: clamp(1.1rem, 2.2vw, 1.6rem);
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.contact-aside h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.contact-aside p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.contact-cards {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-card {
+  padding: 1rem 1.1rem;
+}
+
+.contact-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.contact-card strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.contact-card a:hover {
+  color: var(--accent);
+}
+
+.mini-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.mini-footer-inner {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  min-height: 62px;
+  padding: 0.65rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mini-footer-inner p {
+  margin: 0;
+  color: rgba(244, 247, 251, 0.78);
+  font-size: 0.92rem;
+}
+
+.mini-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mini-footer-links a {
+  color: rgba(244, 247, 251, 0.86);
+  font-size: 0.92rem;
+}
+
+.mini-footer-links a:hover {
+  color: var(--accent);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadePulse {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes logoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes floatRing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scrollMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-emblem {
+    min-height: 22rem;
+    order: -1;
+  }
+
+  .services-grid .service-card,
+  .services .service-card:nth-child(4),
+  .services .service-card:nth-child(5) {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    gap: 0.85rem 1.2rem;
+  }
+
+  .section {
+    width: min(100%, calc(100% - 1.2rem));
+    padding: clamp(1.5rem, 4.8vw, 2.4rem) 0;
+  }
+
+  .section + .section {
+    margin-top: 0;
+  }
+
+  .hero h1,
+  .section-heading h2,
+  .footer-copy h2 {
+    max-width: none;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card .button {
+    width: 100%;
+  }
+
+  .mini-footer-inner {
+    width: min(100%, calc(100% - 1.2rem));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.75rem 0;
+  }
+
+  .services-grid .service-card,
+  .services .service-card:nth-child(4),
+  .services .service-card:nth-child(5) {
+    grid-column: span 12;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
