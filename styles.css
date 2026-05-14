@@ -192,7 +192,7 @@ a {
   padding: clamp(2rem, 4vw, 3.25rem) 0;
 }
 
-.section + .section {
+.section+.section {
   margin-top: 0;
 }
 
@@ -301,7 +301,6 @@ a {
 .button--primary {
   background: linear-gradient(135deg, var(--accent), #eaf5ff);
   color: #050505;
-  box-shadow: 0 16px 40px rgba(168, 203, 242, 0.2);
 }
 
 .button--ghost {
@@ -318,10 +317,7 @@ a {
 }
 
 .meta-card,
-.stat-card,
-.service-card,
 .footer-item {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: var(--shadow);
 }
@@ -453,19 +449,23 @@ p {
   text-align: start;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1), border-color 400ms ease, background 400ms ease, box-shadow 400ms ease;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .about-choice:hover,
 .about-choice:focus-visible {
-  transform: translateY(-3px);
-  border-color: rgba(168, 203, 242, 0.45);
-  background: linear-gradient(180deg, rgba(168, 203, 242, 0.08), rgba(255, 255, 255, 0.03));
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(168, 203, 242, 0.3);
+  background: rgba(168, 203, 242, 0.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .about-choice.is-active {
-  border-color: rgba(168, 203, 242, 0.55);
-  background: linear-gradient(180deg, rgba(168, 203, 242, 0.16), rgba(255, 255, 255, 0.04));
+  border-color: rgba(168, 203, 242, 0.45);
+  background: rgba(168, 203, 242, 0.06);
+  transform: translateX(-4px);
+  box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 .about-choice-title {
@@ -479,11 +479,12 @@ p {
 .stat-card {
   padding: 1.4rem;
   border-radius: 1.6rem;
+  box-shadow: var(--shadow);
 }
 
 .stat-card--accent {
   border-color: rgba(168, 203, 242, 0.4);
-  background: linear-gradient(180deg, rgba(168, 203, 242, 0.12), rgba(255, 255, 255, 0.03));
+  background: rgba(168, 203, 242, 0.06);
 }
 
 .about-copy {
@@ -492,8 +493,10 @@ p {
   gap: 1rem;
   padding: clamp(1.4rem, 2vw, 2rem);
   border-radius: 1.8rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+  transition: all 400ms ease;
 }
 
 .about-copy p {
@@ -531,33 +534,32 @@ p {
   padding: 1.5rem;
   min-height: 15rem;
   overflow: hidden;
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+  transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1), border-color 400ms ease, background 400ms ease, box-shadow 400ms ease;
 }
 
 .service-card::before {
   content: "";
   position: absolute;
-  inset: auto -4rem -4rem auto;
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 203, 242, 0.18), transparent 65%);
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(168, 203, 242, 0.08), transparent 60%);
   opacity: 0;
-  transform: scale(0.7);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition: opacity 500ms ease;
+  pointer-events: none;
 }
 
 .service-card:hover,
 .service-card:focus-within {
-  transform: translateY(-6px);
-  border-color: rgba(168, 203, 242, 0.55);
-  background: linear-gradient(180deg, rgba(168, 203, 242, 0.09), rgba(255, 255, 255, 0.03));
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(168, 203, 242, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(168, 203, 242, 0.05);
 }
 
 .service-card:hover::before {
   opacity: 1;
-  transform: scale(1);
 }
 
 .service-icon {
@@ -637,7 +639,7 @@ p {
 .contact-form-card,
 .contact-aside,
 .contact-card {
-   border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: var(--shadow);
   border-radius: 1.6rem;
 }
@@ -782,6 +784,7 @@ p {
     transform: scale(0.94);
     filter: blur(12px);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -794,6 +797,7 @@ p {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -801,20 +805,24 @@ p {
 }
 
 @keyframes breathe {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.025);
   }
 }
 
 @keyframes floatRing {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -824,12 +832,14 @@ p {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(50%);
   }
 }
 
 @media (max-width: 1100px) {
+
   .hero,
   .about-grid {
     grid-template-columns: 1fr;
@@ -866,7 +876,7 @@ p {
     padding: clamp(1.5rem, 4.8vw, 2.4rem) 0;
   }
 
-  .section + .section {
+  .section+.section {
     margin-top: 0;
   }
 
