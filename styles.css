@@ -261,8 +261,16 @@ a {
 }
 
 .hero h1 {
-  max-width: 9ch;
-  font-size: clamp(4rem, 9vw, 7.5rem);
+  /* Force smaller size across all displays */
+  max-width: min(900px, 9ch);
+  font-size: 3.2rem;
+  word-wrap: break-word;
+  line-height: 1.1;
+}
+
+/* Limit width of copy column so the headline wraps predictably */
+.hero-copy {
+  max-width: 62ch;
 }
 
 .hero h1 .accent-word {
@@ -944,5 +952,12 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Extra cap for typical laptop/desktop screens to keep headline readable */
+@media (max-width: 1400px) {
+  .hero h1 {
+    font-size: clamp(2rem, 5.2vw, 4.4rem);
   }
 }
