@@ -169,6 +169,23 @@ a {
   display: block;
 }
 
+/* Prevent the brand image from forcing a very tall header on small/medium viewports */
+.topbar .brand-mark img {
+  max-height: calc(var(--topbar-height) - 8px);
+}
+
+/* Restore large circular brand for wide screens */
+@media (min-width: 1100px) {
+  .brand-mark {
+    width: 9rem;
+    height: 9rem;
+  }
+  .topbar .brand-mark img {
+    max-height: none;
+    height: 100%;
+  }
+}
+
 /* Hide the large left emblem that was marked for removal in comments */
 .hero-emblem {
   display: none;
@@ -1138,18 +1155,30 @@ p {
 
 /* Mobile header: push brand and CTA to the edges and hide center nav for compact layout */
 @media (max-width: 720px) {
+  :root {
+    --topbar-height: 56px;
+  }
+
   .topbar {
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding-inline: 1rem;
+    padding-block: 0.35rem;
     border-radius: 0;
     justify-content: space-between;
-    direction: ltr; /* keep flex ordering consistent */
   }
 
   .nav {
-    display: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: #777;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .brand {
@@ -1159,8 +1188,35 @@ p {
   }
 
   .brand-mark {
-    width: 3rem;
-    height: 3rem;
+    width: auto;
+    height: auto;
+    display: grid;
+    place-items: center;
+    padding: 0.15rem;
+    border-radius: 8px; /* remove circular crop on small screens */
+    overflow: visible;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .brand-mark img {
+    max-height: calc(var(--topbar-height) - 8px);
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .topbar.is-scrolled {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 1rem !important;
+    padding-block: 0.2rem !important;
+    min-height: var(--topbar-height) !important;
+    border-radius: 0 !important;
+  }
+
+  /* hide nav while scrolled to avoid header growing and covering content */
+  .topbar.is-scrolled .nav {
+    display: none;
   }
 
   .topbar .topbar-cta.button {
