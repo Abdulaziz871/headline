@@ -282,8 +282,8 @@ a {
   margin: 0 0 1rem;
   color: var(--accent);
   font-size: 0.88rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .hero h1,
@@ -559,7 +559,18 @@ p {
   color: var(--vision);
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: normal;
+}
+
+/* Mobile: remove any letter-spacing that can break cursive Arabic rendering */
+@media (max-width: 720px) {
+  .eyebrow,
+  .heading-subtitle,
+  .brand-text,
+  .mini-footer-inner p,
+  .mini-footer-links a {
+    letter-spacing: normal !important;
+  }
 }
 
 .section-heading h2,
