@@ -321,6 +321,7 @@ a {
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .button {
