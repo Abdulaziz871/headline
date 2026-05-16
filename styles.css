@@ -1135,3 +1135,38 @@ p {
     font-size: clamp(2rem, 5.2vw, 4.4rem);
   }
 }
+
+/* Mobile header: push brand and CTA to the edges and hide center nav for compact layout */
+@media (max-width: 720px) {
+  .topbar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-inline: 1rem;
+    border-radius: 0;
+    justify-content: space-between;
+    direction: ltr; /* keep flex ordering consistent */
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+  }
+
+  .brand-mark {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .topbar .topbar-cta.button {
+    min-width: 5.2rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.82rem;
+    margin-inline-start: auto;
+  }
+}
