@@ -130,6 +130,7 @@ a {
     border-radius 220ms ease,
     background 220ms ease,
     border-color 220ms ease;
+    direction: ltr;
 }
 
 .topbar.is-scrolled {
@@ -184,9 +185,11 @@ a {
   flex: 1 1 auto;
   justify-content: center;
   gap: 1rem;
-  color: var(--muted);
+  color: #999;
   font-size: 0.95rem;
   font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
+  direction: rtl;
+  gap: 2.5rem;
 }
 
 .nav a {
@@ -312,7 +315,7 @@ a {
 .hero-subtitle {
   margin: 1.25rem 0 0;
   max-width: 32rem;
-  color: var(--muted);
+  color: #999;
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
 }
 
@@ -402,7 +405,7 @@ a {
 .service-card p,
 .footer-item span {
   margin: 0.35rem 0 0;
-  color: var(--muted);
+  color: #999;
   font-family: "TheYearOfHandicrafts", "Tajawal", "Segoe UI", sans-serif !important;
 }
 
@@ -513,7 +516,7 @@ p {
 
 .intro-lead {
   margin: 0 0 0.6rem 0;
-  color: var(--muted);
+  color: #999;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   max-width: 62ch;
 }
@@ -854,7 +857,7 @@ p {
 
 .contact-aside p {
   margin: 0;
-  color: var(--muted);
+  color: #999;
 }
 
 .contact-cards {
@@ -868,7 +871,7 @@ p {
 
 .contact-card span {
   display: block;
-  color: var(--muted);
+  color: #999;
   font-size: 0.92rem;
 }
 
@@ -887,6 +890,7 @@ p {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(5, 5, 5, 0.72);
   backdrop-filter: blur(10px);
+  direction: ltr;
 }
 
 .mini-footer-inner {
@@ -902,7 +906,7 @@ p {
 
 .mini-footer-inner p {
   margin: 0;
-  color: rgba(244, 247, 251, 0.78);
+  color: #999;
   font-size: 0.92rem;
 }
 
@@ -920,6 +924,18 @@ p {
 
 .mini-footer-links a:hover {
   color: var(--accent);
+}
+
+.mini-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mini-footer-brand img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .reveal {
