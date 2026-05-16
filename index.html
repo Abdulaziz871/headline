@@ -16,6 +16,24 @@
 <body>
   <div class="page-shell">
 
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="Master Logo.png" alt="شعار هيدلاين">
+        </div>
+      </div>
+
+      <nav class="nav" role="navigation" aria-label="الرئيسية">
+        <a href="#hero">الرئيسية</a>
+        <a href="#about">من نحن</a>
+        <a href="#why">لماذا هيدلاين؟</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <a class="button button--ghost topbar-cta" href="#contact">تواصل معنا</a>
+    </header>
+
 
     <main>
       <section class="hero section" id="hero">
@@ -30,133 +48,106 @@
             <a class="button button--ghost" href="#contact">تواصل معنا</a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-card">
-              <span>12+</span>
-              <p>سنة خبرة تراكمية</p>
-            </div>
-            <div class="meta-card">
-              <span>قادة</span>
-              <p>صناعة، حكومة، وعلامات مؤثرة</p>
-            </div>
-          </div>
+          <!-- hero-meta removed as requested -->
         </div>
 
-        <div class="hero-emblem reveal" aria-hidden="true">
-          <div class="emblem-core">
-            <img src="Master%20Logo.png" alt="" aria-hidden="true">
+        <!-- hero-emblem removed as requested -->
+      </section>
+
+      <section class="intro section" id="who">
+        <div class="intro-grid reveal">
+          <div class="intro-icon" aria-hidden="true">
+            <div class="intro-icon-box" aria-hidden="true">
+              <i class="fi fi-rr-user intro-icon-figure" aria-hidden="true"></i>
+            </div>
           </div>
-          <div class="emblem-caption">BORN BIG</div>
+
+          <div class="intro-copy">
+            <h2>من هيدلاين؟</h2>
+            <p class="intro-lead">وكالة إبداعية محلية تصنع لك عنوانًا إبداعيًا من خلال فريق متمكن بخبراته ومدرك لواقع قطاع التسويق. نتيح لك حلولاً عملية قائمة على هدف واضح وقابلة للقياس.</p>
+            <p class="intro-muted">نؤمن بأن لكل مشكلة فكرة، ولكل فكرة خطة تنفيذية تقود إلى نتيجة — ونحن شركاؤك في تحويل الفكرة إلى أثر.</p>
+          </div>
         </div>
       </section>
 
       <section class="about section" id="about">
         <div class="section-heading reveal">
           <div class="heading-wrapper">
-            <p class="eyebrow">نجاحات فريقنا</p>
-            <p class="heading-subtitle">تشكّلت معنا</p>
+             <p class="heading-subtitle">وش يميزنــــا؟</p>
           </div>
-          <h2>نحن لا نبدأ من الصفر، بل نكمل قصة نجاح بدأت منذ سنوات</h2>
+          <h2>لماذا هيدلاين ؟</h2>
         </div>
 
         <div class="about-grid">
           <div class="about-stats reveal">
-            <button class="stat-card about-choice stat-card--accent is-active" type="button" data-title="نفهمك."
-              data-text="نفهم احتياجك وطريقة ظهورك وهدفك في الوصول، ونبني معك الاتجاه الإبداعي الذي يخدم مشروعك بوضوح.">
-              <span class="about-choice-title">نفهمك.</span>
-              <p>نفهم احتياجك وطريقة ظهورك وهدفك في الوصول.</p>
-            </button>
+            <article class="stat-card">
+              <h3 class="about-choice-title">نفهمك.</h3>
+              <p>نفهم احتياجك وطريقة ظهورك وهدفك في الوصول، ونبني معك الاتجاه الإبداعي الذي يخدم مشروعك بوضوح.</p>
+            </article>
 
-            <button class="stat-card about-choice" type="button" data-title="نفهم ثقافة الجمهور."
-              data-text="نحن جزء من نسيج المجتمع، لذلك نصوغ الرسائل والأسلوب بطريقة قريبة من الناس وتخلق اتصالا حقيقيا مع جمهورك.">
-              <span class="about-choice-title">نفهم ثقافة الجمهور.</span>
-              <p>نصوغ رسالتك بأسلوب يتوافق مع المجتمع ويصل بوضوح.</p>
-            </button>
+            <article class="stat-card">
+              <h3 class="about-choice-title">نفهم ثقافة الجمهور.</h3>
+              <p>نحن جزء من نسيج المجتمع، لذلك نصوغ الرسائل والأسلوب بطريقة قريبة من الناس وتخلق اتصالًا حقيقيًا مع جمهورك.</p>
+            </article>
 
-            <button class="stat-card about-choice" type="button" data-title="ننّفذ بجودة."
-              data-text="فريقنا يضم خبرات عالية تعمل معك خطوة بخطوة لضمان تنفيذ قوي ينعكس مباشرة على نتائج مشروعك.">
-              <span class="about-choice-title">ننّفذ بجودة.</span>
-              <p>فريق يعتمد عليه بخبرة كبيرة يشاركك نجاح مشروعك.</p>
-            </button>
+            <article class="stat-card">
+              <h3 class="about-choice-title">ننّفذ بجودة.</h3>
+              <p>فريقنا يعتمد عليه بخبرة كبيرة، يعمل معك خطوة بخطوة لضمان تنفيذ قوي ينعكس مباشرة على نتائج مشروعك.</p>
+            </article>
           </div>
-
-          <div class="about-copy reveal" id="about-detail" aria-live="polite">
-            <h3 class="about-detail-title">نفهمك.</h3>
-            <p class="about-detail-text">
-              نفهم احتياجك وطريقة ظهورك وهدفك في الوصول، ونبني معك الاتجاه الإبداعي الذي يخدم مشروعك بوضوح.
-            </p>
-          </div>
+        </div>
+        <div class="about-slogan reveal">
+          <p>لنشكـل لك عنوان إبداعــي.. يحقــق رؤيتـك</p>
         </div>
       </section>
 
       <section class="services section" id="services">
         <div class="section-heading reveal">
           <div class="heading-wrapper">
-            <p class="eyebrow">الحلول الإبداعية</p>
-            <p class="heading-subtitle">تصنع فرقًا ملموسًا</p>
+            <p class="heading-subtitle">خدماتنا</p>
           </div>
-          <h2>حلول إبداعية تصنع فرقًا ملموسًا في السوق</h2>
+          <h2>حلول إبداعية تصنع فرقًا ملموسًا</h2>
         </div>
 
         <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-icon"><i class="fi fi-rr-sparkles"></i></div>
             <h3>صناعة العلامة التجارية</h3>
-            <p>بناء هويات متكاملة تدعم الأهداف الاستراتيجية وتحوّل الانطباع إلى قيمة.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon"><i class="fi fi-rr-megaphone"></i></div>
-            <h3>الحملات الإبداعية</h3>
-            <p>رسائل ذكية وقصص قوية تظل حاضرة في الذهن وتستمر آثارها لسنوات.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon"><i class="fi fi-rr-share-square"></i></div>
-            <h3>إدارة وسائل التواصل الاجتماعي</h3>
-            <p>محتوى يومي ونبرة متسقة تُضخم الحضور الرقمي وتبني علاقة مستمرة مع الجمهور.</p>
+            <p>نبني علامات تجارية وهويات بصرية إبداعية توصلك لأهدافك الاستراتيجية والاتصالية</p>
           </article>
 
           <article class="service-card reveal">
             <div class="service-icon"><i class="fi fi-rr-chart-line-up"></i></div>
             <h3>التسويق الرقمي</h3>
-            <p>ربط العلامات بجمهورها عبر أدوات حديثة، وإعلانات مدروسة، وتحسينات مستمرة.</p>
+            <p>نعزز وجودك في فضاء الإنترنت، ونوصلك لجمهورك البعيد والقريب بأحدث التقنيات التسويقية</p>
           </article>
 
           <article class="service-card reveal">
+            <div class="service-icon"><i class="fi fi-rr-share-square"></i></div>
+            <h3>إدارة وسائل التواصل الاجتماعي</h3>
+            <p>نعزز ظهورك الرقمي بعناوين إبداعية ومحتويات نصيّة ومرئية تعكس رؤيتك وهدفك منها</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="fi fi-rr-megaphone"></i></div>
+            <h3>الحملات الإبداعية</h3>
+            <p>الحملات الإبداعية هي الأساس اللي يسند ويساند، يطوّر ويتطور، يَصِل ويتواصل من خلال رسائل وعناوين تحقق الهدف وتُروى لسنين.</p>
+          </article>
+
+          <article class="service-card reveal service-card--wide">
             <div class="service-icon"><i class="fi fi-rr-clapperboard-play"></i></div>
             <h3>السيناريو والإنتاج</h3>
-            <p>تحويل الأفكار إلى حكايات بصرية سينمائية منضبطة الإيقاع ومؤثرة في النتائج.</p>
+            <p>نحول الفكرة لسيناريو نصنع منه قصة سينمائية أو موشن جرافيك بأعلى التقنيات من خلال دمج الإبداع مع مخرجات التنفيذ.</p>
+          </article>
+
+          <article class="service-card reveal service-card--align-right">
+            <div class="service-icon"><i class="fi fi-rr-presentation"></i></div>
+            <h3>الخطط الاتصالية</h3>
+            <p>استراتيجيات ورسائل متكاملة ومناهج تنفيذ عبر القنوات تضمن تواصل واضح ومؤثر.</p>
           </article>
         </div>
       </section>
-
-      <section class="clients section" id="clients">
-        <div class="section-heading reveal">
-          <div class="heading-wrapper">
-            <p class="eyebrow">شركاؤنا</p>
-            <p class="heading-subtitle">شراكات موثوقة</p>
-          </div>
-          <h2>شراكات تُعرض بثقة وتبقى حاضرة في المشهد</h2>
-        </div>
-
-        <div class="marquee reveal" aria-label="شعارات العملاء الشركاء">
-          <div class="marquee-track">
-            <span>وزارة الثقافة</span>
-            <span>سار</span>
-            <span>نينجا</span>
-            <span>الهيئات الحكومية</span>
-            <span>القطاعات الوطنية</span>
-            <span>العلامات القيادية</span>
-            <span>وزارة الثقافة</span>
-            <span>سار</span>
-            <span>نينجا</span>
-            <span>الهيئات الحكومية</span>
-            <span>القطاعات الوطنية</span>
-            <span>العلامات القيادية</span>
-          </div>
-        </div>
-      </section>
+ 
     </main>
 
     <section class="contact-zone section" id="contact">
@@ -185,17 +176,14 @@
             <input id="phone" name="phone" type="tel" placeholder="+966 5X XXX XXXX">
           </div>
 
-          <div class="contact-field">
-            <label for="message">نبذة عن مشروعك</label>
-            <textarea id="message" name="message" rows="5" placeholder="اكتب تفاصيل المشروع والهدف"></textarea>
-          </div>
+ 
 
           <button class="button button--primary" type="submit">إرسال الطلب</button>
         </form>
 
         <aside class="contact-aside reveal">
           <h3>نتواصل معك خلال 24 ساعة</h3>
-          <p>شاركنا فكرة مشروعك وسنعود لك بخطة واضحة، نطاق العمل، والجدول الزمني المناسب.</p>
+          <p>شاركنا فكرة مشروعك وسنعود لك بخطة واضحة.</p>
 
           <div class="contact-cards">
             <div class="contact-card">
@@ -204,7 +192,7 @@
             </div>
             <div class="contact-card">
               <span>الهاتف</span>
-              <strong><a href="tel:+966506691119">+966 50 6691119</a></strong>
+              <strong style="direction: ltr; text-align: right;"><a href="tel:+966506691119">+966 50 6691119</a></strong>
             </div>
             <div class="contact-card">
               <span>العنوان</span>

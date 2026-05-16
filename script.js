@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const topbar = document.querySelector(".topbar");
   const revealItems = document.querySelectorAll(".reveal");
+
+  const updateTopbarState = () => {
+    if (!topbar) {
+      return;
+    }
+
+    topbar.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -22,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (marquee) {
     marquee.innerHTML += marquee.innerHTML;
   }
+
+  updateTopbarState();
+  window.addEventListener("scroll", updateTopbarState, { passive: true });
 
   const aboutChoices = document.querySelectorAll(".about-choice");
   const aboutDetailTitle = document.querySelector(".about-detail-title");
