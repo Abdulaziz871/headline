@@ -914,6 +914,7 @@ p {
 .mini-footer-links a {
   color: rgba(244, 247, 251, 0.86);
   font-size: 0.92rem;
+  direction: ltr;
 }
 
 .mini-footer-links a:hover {
