@@ -195,6 +195,7 @@ a {
 .nav a {
   position: relative;
   padding-bottom: 0.2rem;
+  color: #FFF;
 }
 
 .nav a::after {
